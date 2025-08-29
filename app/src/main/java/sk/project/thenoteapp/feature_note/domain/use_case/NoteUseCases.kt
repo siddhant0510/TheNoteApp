@@ -1,6 +1,7 @@
 package sk.project.thenoteapp.feature_note.domain.use_case
 
-data class NoteUseCase(
+data class NoteUseCases(
     val getNotes: GetNotes,
-    val deleteNote: DeleteNote
+    val deleteNote: DeleteNote,
+    val addNote: AddNote
 )
