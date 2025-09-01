@@ -1,4 +1,4 @@
-package sk.project.thenoteapp
+package sk.project.thenoteapp.feature_note.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

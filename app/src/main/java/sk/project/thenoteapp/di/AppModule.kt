@@ -9,9 +9,10 @@ import dagger.hilt.components.SingletonComponent
 import sk.project.thenoteapp.feature_note.data.data_source.NoteDatabase
 import sk.project.thenoteapp.feature_note.data.repository.NoteRepositoryImpl
 import sk.project.thenoteapp.feature_note.domain.repository.NoteRepository
+import sk.project.thenoteapp.feature_note.domain.use_case.AddNote
 import sk.project.thenoteapp.feature_note.domain.use_case.DeleteNote
 import sk.project.thenoteapp.feature_note.domain.use_case.GetNotes
-import sk.project.thenoteapp.feature_note.domain.use_case.NoteUseCase
+import sk.project.thenoteapp.feature_note.domain.use_case.NoteUseCases
 import javax.inject.Singleton
 
 @Module
@@ -36,10 +37,11 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideNoteUseCases(repository: NoteRepository): NoteUseCase {
-        return NoteUseCase(
+    fun provideNoteUseCases(repository: NoteRepository): NoteUseCases {
+        return NoteUseCases(
             getNotes = GetNotes(repository),
-            deleteNote = DeleteNote(repository)
+            deleteNote = DeleteNote(repository),
+            addNote = AddNote(repository)
         )
     }
 }
