@@ -11,6 +11,7 @@ import sk.project.thenoteapp.feature_note.data.repository.NoteRepositoryImpl
 import sk.project.thenoteapp.feature_note.domain.repository.NoteRepository
 import sk.project.thenoteapp.feature_note.domain.use_case.AddNote
 import sk.project.thenoteapp.feature_note.domain.use_case.DeleteNote
+import sk.project.thenoteapp.feature_note.domain.use_case.GetNote
 import sk.project.thenoteapp.feature_note.domain.use_case.GetNotes
 import sk.project.thenoteapp.feature_note.domain.use_case.NoteUseCases
 import javax.inject.Singleton
@@ -41,7 +42,8 @@ object AppModule {
         return NoteUseCases(
             getNotes = GetNotes(repository),
             deleteNote = DeleteNote(repository),
-            addNote = AddNote(repository)
+            addNote = AddNote(repository),
+            getNote = GetNote(repository)
         )
     }
 }
